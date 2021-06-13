@@ -1,0 +1,19 @@
+<p>hacker-news-list works!</p>
+
+<br><br>
+
+<hr>
+<h3>ng for</h3>
+  <div *ngFor="let item of itemDetails; index as idx" >
+    [{{idx}}] - {{item.id}} - {{item.title}}<br>
+    <i>{{item.text}}</i>
+  </div>
+
+<hr>
+<button (click)="printInfo()">{{!displayJson ? 'Show' : 'Hide'}} Json Info</button>
+<div *ngIf="displayJson">
+  <h3>Info json</h3>
+  <pre>
+    {{itemDetails}}
+  </pre>
+</div>
