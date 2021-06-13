@@ -1,19 +1,19 @@
-<p>hacker-news-list works!</p>
+<div>
+  <button (click)="loadDetail()"><b>+</b> load more</button>
+  <button (click)="printInfo()" *ngIf="!isProd">{{!displayJson ? 'show' : 'hide'}} json info</button>
+</div>
 
-<br><br>
+<div *ngFor="let item of itemDetails; index as idx" >
+  <i>{{idx+1}}</i>. {{item.title}} (<a href="{{item.url}}" target="_new">{{getLocation(item.url)}}</a>)
+  <br><div style="padding-left: 20px"><i>{{item.text}}</i></div>
+</div>
+<br>
 
-<hr>
-<h3>ng for</h3>
-  <div *ngFor="let item of itemDetails; index as idx" >
-    [{{idx}}] - {{item.id}} - {{item.title}}<br>
-    <i>{{item.text}}</i>
-  </div>
 
-<hr>
-<button (click)="printInfo()">{{!displayJson ? 'Show' : 'Hide'}} Json Info</button>
 <div *ngIf="displayJson">
+  <hr>
   <h3>Info json</h3>
   <pre>
-    {{itemDetails}}
+    {{itemDetails | json}}
   </pre>
 </div>
